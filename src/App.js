@@ -7,9 +7,10 @@ import StudentInfo from './components/StudentInfo';
 
 function App() {
   const [studentsInfo, setStudentsInfo] = useState([]);
-  
+
   return (
     <div>
+      <h1>Student Information:</h1>
       <StudentInfo studentsInfo = {studentsInfo} setStudentsInfo = {setStudentsInfo}/>
     </div>
   );
