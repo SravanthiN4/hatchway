@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import  { getStudentInfo }  from '../api';
+import "../style/StudentInfo.css";
 
 
 
@@ -20,11 +21,11 @@ const StudentInfo = (props) => {
                studentsInfo.map(student => 
                     <div key = {student.id}>
                         <h2>{student.firstName}</h2>
-                        <img src = {student.pic}></img>
-                        <p>Email : {student.email}</p>
-                        <p>Company : {student.company}</p>
-                        <p>Skill : {student.skill}</p>
-                        <p>Average : {student.grades.reduce((sum, curr) => Number(sum) + Number(curr), 0) /
+                        <img className='student__image' src = {student.pic}></img>
+                        <p className = "student__profile">Email : {student.email}</p>
+                        <p className = "student__profile">Company : {student.company}</p>
+                        <p className = "student__profile">Skill : {student.skill}</p>
+                        <p className = "student__profile">Average : {student.grades.reduce((sum, curr) => Number(sum) + Number(curr), 0) /
                                         student.grades.length}%</p>
                     </div>
                 )
