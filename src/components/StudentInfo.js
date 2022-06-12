@@ -23,8 +23,8 @@ const StudentInfo = (props) => {
                         <p>Email : {student.email}</p>
                         <p>Company : {student.company}</p>
                         <p>Skill : {student.skill}</p>
-                        <p>Average : {student.grades.reduce((sum, curr) => sum + curr, 0) /
-                                        student.grades.length}</p>
+                        <p>Average : {student.grades.reduce((sum, curr) => Number(sum) + Number(curr), 0) /
+                                        student.grades.length}%</p>
                     </div>
                 )
            }
