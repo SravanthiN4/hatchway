@@ -20,6 +20,7 @@ const StudentInfo = (props) => {
                studentsInfo.map(student => 
                     <div key = {student.id}>
                         <h2>{student.firstName}</h2>
+                        <img src = {student.pic}></img>
                         <p>Email : {student.email}</p>
                         <p>Company : {student.company}</p>
                         <p>Skill : {student.skill}</p>
