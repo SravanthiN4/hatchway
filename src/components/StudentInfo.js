@@ -20,8 +20,9 @@ const StudentInfo = (props) => {
            {
                studentsInfo.map(student => 
                     <div key = {student.id}>
-                        <h2>{student.firstName}</h2>
+                        
                         <img className='student__image' src = {student.pic}></img>
+                        <h2 className='student__profile'>{student.firstName.toUpperCase() + " " + student.lastName.toUpperCase()}</h2>
                         <p className = "student__profile">Email : {student.email}</p>
                         <p className = "student__profile">Company : {student.company}</p>
                         <p className = "student__profile">Skill : {student.skill}</p>
