@@ -4,23 +4,35 @@ import "../style/StudentInfo.css";
 
 
 
-const StudentInfo = (props) => {
-    const {studentsInfo, setStudentsInfo} = props;
 
+
+const StudentInfo = (props) => {
+    
+    const {studentsInfo, setStudentsInfo} = props;
+    const [searchTerm, setSearchTerm] = useState('');
+    console.log("studentinfo", setSearchTerm);
     useEffect(() => {
         (async () => {
             const students = await getStudentInfo();
-            console.log("students", students);
+               console.log("students", students);
             setStudentsInfo(students.students);
         })();
     }, []);
     return (
        <div>
-        <div>
+        <div> <input type="text" placeholder='Search..' 
+        onChange={event => {setSearchTerm(event.target.value)}}>
+            </input></div>
+        
            {
-               studentsInfo.map(student => 
+               studentsInfo.filter((val) => {
+                   if(searchTerm === "") {
+                       return val
+                   } else if (val.firstName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                       return val
+                   }
+               }).map(student => 
                     <div key = {student.id}>
-                        
                         <img className='student__image' src = {student.pic}></img>
                         <h2 className='student__profile'>{student.firstName.toUpperCase() + " " + student.lastName.toUpperCase()}</h2>
                         <p className = "student__profile">Email : {student.email}</p>
@@ -31,7 +43,7 @@ const StudentInfo = (props) => {
                     </div>
                 )
            }
-        </div>
+        
         </div>
        
     );

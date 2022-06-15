@@ -1,15 +1,33 @@
+
+
 .student__image {
     width : 100px;
     height : 100px;
     border-radius: 50%;
     border: 5px solid lightgray;
-    margin: 5px;
+    margin: 10px;
     float: left;
     
 }
 .student__profile {
-    margin-right: 600px;
+    margin-right: 1000px;
     text-align: right;
     font-family: 'Raleway', sans-serif;
 }
+
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
+  }
+
+
+
+
 

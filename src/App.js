@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import './App.css';
+//import './App.css';
 import {getStudentInfo} from './api'
 import StudentInfo from './components/StudentInfo';
 
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div>
-      <h1>Student Information:</h1>
+      
       <StudentInfo studentsInfo = {studentsInfo} setStudentsInfo = {setStudentsInfo}/>
     </div>
   );
