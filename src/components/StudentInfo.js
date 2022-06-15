@@ -28,7 +28,7 @@ const StudentInfo = (props) => {
                studentsInfo.filter((val) => {
                    if(searchTerm === "") {
                        return val
-                   } else if (val.firstName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                   } else if (val.firstName.toLowerCase().includes(searchTerm.toLowerCase()) || val.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ) {
                        return val
                    }
                }).map(student => 
