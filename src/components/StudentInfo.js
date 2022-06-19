@@ -10,7 +10,8 @@ const StudentInfo = (props) => {
     
     const {studentsInfo, setStudentsInfo} = props;
     const [searchTerm, setSearchTerm] = useState('');
-    console.log("studentinfo", setSearchTerm);
+    const [gradesOpen, setGradesOpen] = useState(false);
+
     useEffect(() => {
         (async () => {
             const students = await getStudentInfo();
@@ -18,6 +19,8 @@ const StudentInfo = (props) => {
             setStudentsInfo(students.students);
         })();
     }, []);
+
+
     return (
        <div>
         <div> <input type="text" placeholder='Search..' 
@@ -40,6 +43,13 @@ const StudentInfo = (props) => {
                         <p className = "student__profile">Skill : {student.skill}</p>
                         <p className = "student__profile">Average : {student.grades.reduce((sum, curr) => Number(sum) + Number(curr), 0) /
                                         student.grades.length}%</p>
+
+                {<button key={student.id} onClick={() => { setGradesOpen({ open: !gradesOpen, id: student.id }) }} gradesOpen={gradesOpen}> Display Grades</button>}
+                        {gradesOpen.open || gradesOpen.id === student.id?
+                          <> Grades: {student.grades.map((grade,index) => <p key={index}>{grade}%</p>)}
+                          </> : null}
+
+                
                     </div>
                 )
            }
